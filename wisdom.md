@@ -1,0 +1,3 @@
+./ch.sh C virus 0.3 | tee -a C.txt
+...
+cat C.txt | awk '{ if($1 != "==========") {print $4,$1} }' | ./helper/makeSum | sort -n | tac - | > end.txt
