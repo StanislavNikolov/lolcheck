@@ -6,7 +6,7 @@ timel=$3
 
 echo "========== $task =========="
 
-for i in $group/*
+for i in code/$group/*
 do
 	if [[ "$i" == "ch.sh" ]]
 	then
@@ -14,12 +14,11 @@ do
 	else
 		pushd . > /dev/null
 		cd $i
+		g++ $task.cpp -O2 -o $task &> /dev/null
 		if [ -f ./$task ]
 		then
-			# echo "Compiling $i: "
-			# g++ $task.cpp -O2 -o $task
 			echo -n "$i: "
-			STATUS="min" programming_check ../../t_$task ./$task $timel;
+			STATUS="min" programming_check ../../../tests/$group/$task/tests ./$task $timel;
 		fi
 		popd > /dev/null
 	fi
