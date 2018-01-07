@@ -1,10 +1,10 @@
-#!/bin/env bash
+#!/bin/bash
 
 group=$1
 task=$2
 timel=$3
 
-echo "========== $task =========="
+echo "========== $task - TL: ${timel}s =========="
 
 for i in code/$group/*
 do
